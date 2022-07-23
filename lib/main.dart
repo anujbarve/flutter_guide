@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_guide/question.dart';
 
 void main() {
   runApp(MyApp());
@@ -10,11 +11,11 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  var questionIndex = 0;
+  var _questionIndex = 0;
 
-  void answerQuestion() {
+  void _answerQuestion() {
     setState(() {
-      questionIndex++;
+      _questionIndex++;
     });
   }
 
@@ -30,10 +31,10 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(title: Text("MyApp")),
         body: Column(
           children: [
-            Text(questions[questionIndex]),
+            Question(questions[_questionIndex]),
             RaisedButton(
               child: Text('Ans 1'),
-              onPressed: answerQuestion,
+              onPressed: _answerQuestion,
             ),
             RaisedButton(
               child: Text('Ans 2'),
@@ -45,7 +46,7 @@ class _MyAppState extends State<MyApp> {
             ),
             RaisedButton(
               child: Text('Ans 4'),
-              onPressed: answerQuestion,
+              onPressed: _answerQuestion,
             ),
           ],
         ),
