@@ -12,8 +12,15 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Expense Tracker',
       theme: ThemeData(
-        primarySwatch: Colors.purple
-      ),
+          primarySwatch: Colors.purple,
+          accentColor: Colors.amber,
+          fontFamily: 'Quicksand',
+          textTheme: ThemeData.light().textTheme.copyWith(
+            headline6: TextStyle(fontFamily: 'OpenSans', fontWeight: FontWeight.bold, fontSize: 18)
+          ),
+          appBarTheme: AppBarTheme(
+              textTheme: ThemeData.light().textTheme.copyWith(
+                  headline6: TextStyle(fontFamily: 'OpenSans', fontSize: 20, fontWeight: FontWeight.bold)))),
       home: MyHomePage(),
     );
   }
@@ -29,18 +36,18 @@ class _MyHomePageState extends State<MyHomePage> {
   String? amountinput;
 
   final List<Transaction> _userTransaction = [
-    Transaction(
-      id: 't1',
-      title: 'New Shirts',
-      amount: 50.00,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 't2',
-      title: 'Groceries',
-      amount: 10.00,
-      date: DateTime.now(),
-    ),
+    // Transaction(
+    //   id: 't1',
+    //   title: 'New Shirts',
+    //   amount: 50.00,
+    //   date: DateTime.now(),
+    // ),
+    // Transaction(
+    //   id: 't2',
+    //   title: 'Groceries',
+    //   amount: 10.00,
+    //   date: DateTime.now(),
+    // ),
   ];
 
   void _addNewTransaction(String title, double amount) {
@@ -63,7 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
             onTap: () {},
             child: NewTransaction(_addNewTransaction),
             behavior: HitTestBehavior.opaque,
-            );
+          );
         });
   }
 
@@ -73,7 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(title: Text('Flutter App'), actions: [
         IconButton(
           icon: Icon(Icons.add),
-          onPressed:() => _startAddNewTransaction(context),
+          onPressed: () => _startAddNewTransaction(context),
         )
       ]),
       body: SingleChildScrollView(
