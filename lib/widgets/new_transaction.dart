@@ -9,7 +9,7 @@ import 'package:intl/intl.dart';
 class NewTransaction extends StatefulWidget {
   final Function addTx;
 
-  NewTransaction(this.addTx);
+  const NewTransaction(this.addTx);
 
   @override
   State<NewTransaction> createState() => _NewTransactionState();
@@ -66,12 +66,12 @@ final bool isIOS = Platform.isIOS;
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               TextField(
-                decoration: InputDecoration(labelText: 'Title'),
+                decoration: const InputDecoration(labelText: 'Title'),
                 controller: _titleController,
                 onSubmitted: (_) => _submitData,
               ),
               TextField(
-                decoration: InputDecoration(labelText: 'Amount'),
+                decoration: const InputDecoration(labelText: 'Amount'),
                 controller: _amountController,
                 keyboardType: TextInputType.number,
                 onSubmitted: (_) => _submitData,
@@ -86,7 +86,7 @@ final bool isIOS = Platform.isIOS;
                             : 'Picked Date : ${DateFormat.yMd().format(_selectedDate!)}')),
                     isIOS ? CupertinoButton(
                       onPressed: _presentDatePicker,
-                      child: Text(
+                      child: const Text(
                         'Choose Date',
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
@@ -94,7 +94,7 @@ final bool isIOS = Platform.isIOS;
                     FlatButton(
                       onPressed: _presentDatePicker,
                       textColor: Theme.of(context).primaryColor,
-                      child: Text(
+                      child: const Text(
                         'Choose Date',
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
@@ -103,14 +103,14 @@ final bool isIOS = Platform.isIOS;
                 ),
               ),
               isIOS ? CupertinoButton(
-                child: Text('Add Transaction'),
+                child: const Text('Add Transaction'),
                 color: Theme.of(context).primaryColor,
                 onPressed: _submitData,
                 ) 
               :
               RaisedButton(
                 onPressed: _submitData,
-                child: Text('Add Transaction'),
+                child: const Text('Add Transaction'),
                 color: Theme.of(context).primaryColor,
                 textColor: Theme.of(context).textTheme.button!.color,
               )

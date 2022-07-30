@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
                 fontFamily: 'OpenSans',
                 fontWeight: FontWeight.bold,
                 fontSize: 18),
-            button: TextStyle(color: Colors.white)),
+            button: const TextStyle(color: Colors.white)),
         appBarTheme: AppBarTheme(
           textTheme: ThemeData.light().textTheme.copyWith(
                 headline6: const TextStyle(
@@ -77,7 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return _userTransaction.where((tx) {
       return tx.date!.isAfter(
         DateTime.now().subtract(
-          Duration(days: 7),
+          const Duration(days: 7),
         ),
       );
     }).toList();
@@ -121,7 +121,7 @@ class _MyHomePageState extends State<MyHomePage> {
     final isLandscape = mediaQuery.orientation == Orientation.landscape;
 
     final PreferredSizeWidget appBar = isIOS ? CupertinoNavigationBar(
-      middle: Text('Expense Tracker'),
+      middle: const Text('Expense Tracker'),
       trailing: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -131,9 +131,9 @@ class _MyHomePageState extends State<MyHomePage> {
           )
         ],
       ),
-    ) : AppBar(title: Text('Flutter App'), actions: [
+    ) : AppBar(title: const Text('Flutter App'), actions: [
       IconButton(
-        icon: Icon(Icons.add),
+        icon: const Icon(Icons.add),
         onPressed: () => _startAddNewTransaction(context),
       )
     ]) as PreferredSizeWidget;
@@ -194,7 +194,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: appBody,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: isIOS ? Container() : FloatingActionButton(
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
         onPressed: () => _startAddNewTransaction(context),
       ),
     );

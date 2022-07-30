@@ -8,7 +8,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_guide/models/transaction.dart';
 
 class Chart extends StatelessWidget {
-  Chart(this.recentTransactions);
+  const Chart(this.recentTransactions);
 
   final List<Transaction> recentTransactions;
 
